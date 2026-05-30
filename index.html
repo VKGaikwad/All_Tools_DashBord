@@ -1,167 +1,195 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automation Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
 }
 
-body{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    min-height:100vh;
-    padding:40px;
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-.header{
-    text-align:center;
-    color:white;
-    margin-bottom:40px;
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background: #111827;
+    color: white;
+    padding-top: 20px;
 }
 
-.header h1{
-    font-size:42px;
-    margin-bottom:10px;
+.sidebar h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #e5e7eb;
 }
 
-.header p{
-    color:#cbd5e1;
-    font-size:18px;
+.menu {
+    list-style: none;
+    padding: 0;
 }
 
-.dashboard{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    max-width:1400px;
-    margin:auto;
+.menu li {
+    padding: 12px 18px;
+    cursor: pointer;
+    color: #cbd5e1;
+    border-left: 3px solid transparent;
 }
 
-.card{
-    text-decoration:none;
-    color:white;
-    border-radius:16px;
-    padding:30px;
-    min-height:150px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    transition:all 0.3s ease;
-    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+.menu li:hover {
+    background: #1f2937;
+    border-left: 3px solid #3b82f6;
+    color: white;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+/* Content */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
 }
 
-.card h2{
-    margin-bottom:10px;
-    font-size:24px;
+.header {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #111827;
 }
 
-.card p{
-    text-align:center;
-    opacity:0.9;
-    font-size:14px;
+/* Button grid */
+.section {
+    margin-bottom: 30px;
 }
 
-/* Colors */
+.section-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #374151;
+    font-weight: bold;
+}
 
-.a1{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
-.a2{background:linear-gradient(135deg,#16a34a,#15803d);}
-.a3{background:linear-gradient(135deg,#dc2626,#b91c1c);}
-.a4{background:linear-gradient(135deg,#9333ea,#7e22ce);}
-.a5{background:linear-gradient(135deg,#ea580c,#c2410c);}
-.a6{background:linear-gradient(135deg,#0891b2,#0e7490);}
-.a7{background:linear-gradient(135deg,#db2777,#be185d);}
-.a8{background:linear-gradient(135deg,#65a30d,#4d7c0f);}
-.a9{background:linear-gradient(135deg,#4f46e5,#4338ca);}
-.a10{background:linear-gradient(135deg,#475569,#334155);}
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-.footer{
-    text-align:center;
-    margin-top:40px;
-    color:#94a3b8;
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #111827;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="header">
-    <h1>🚀 Automation Dashboard</h1>
-    <p>Centralized Access to All Automation Suites</p>
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="sidebar">
+        <h2>Automation Portal</h2>
+
+        <ul class="menu">
+            <li onclick="showPage('page1')">Page 1</li>
+            <li onclick="showPage('page2')">Page 2</li>
+            <li onclick="showPage('page3')">Page 3</li>
+            <li onclick="showPage('page4')">Page 4</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="header" id="title">Page 1 - Automation Suites</div>
+
+        <!-- PAGE 1 -->
+        <div id="page1" class="page">
+
+            <div class="section">
+                <div class="section-title">Web Automation</div>
+                <div class="button-grid">
+                    <a class="btn" href="https://link-a1.com" target="_blank">Automation A</a>
+                    <a class="btn" href="https://link-a2.com" target="_blank">Automation B</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">API Automation</div>
+                <div class="button-grid">
+                    <a class="btn" href="https://link-a3.com" target="_blank">Automation C</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGE 2 -->
+        <div id="page2" class="page" style="display:none;">
+            <div class="section-title">Page 2 Automation</div>
+            <div class="button-grid">
+                <a class="btn" href="#">Automation D</a>
+                <a class="btn" href="#">Automation E</a>
+            </div>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div id="page3" class="page" style="display:none;">
+            <div class="section-title">Page 3 Automation</div>
+            <div class="button-grid">
+                <a class="btn" href="#">Automation F</a>
+                <a class="btn" href="#">Automation G</a>
+            </div>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div id="page4" class="page" style="display:none;">
+            <div class="section-title">Page 4 Automation</div>
+            <div class="button-grid">
+                <a class="btn" href="#">Automation H</a>
+                <a class="btn" href="#">Automation I</a>
+                <a class="btn" href="#">Automation J</a>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="dashboard">
+<script>
+function showPage(pageId) {
+    let pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
 
-```
-<a href="https://your-link-automation-a.com" class="card a1" target="_blank">
-    <h2>Automation A</h2>
-    <p>Web Regression Suite</p>
-</a>
+    document.getElementById(pageId).style.display = 'block';
 
-<a href="https://your-link-automation-b.com" class="card a2" target="_blank">
-    <h2>Automation B</h2>
-    <p>API Test Suite</p>
-</a>
-
-<a href="https://your-link-automation-c.com" class="card a3" target="_blank">
-    <h2>Automation C</h2>
-    <p>Mobile Automation</p>
-</a>
-
-<a href="https://your-link-automation-d.com" class="card a4" target="_blank">
-    <h2>Automation D</h2>
-    <p>Performance Testing</p>
-</a>
-
-<a href="https://your-link-automation-e.com" class="card a5" target="_blank">
-    <h2>Automation E</h2>
-    <p>Smoke Tests</p>
-</a>
-
-<a href="https://your-link-automation-f.com" class="card a6" target="_blank">
-    <h2>Automation F</h2>
-    <p>Integration Tests</p>
-</a>
-
-<a href="https://your-link-automation-g.com" class="card a7" target="_blank">
-    <h2>Automation G</h2>
-    <p>Security Validation</p>
-</a>
-
-<a href="https://your-link-automation-h.com" class="card a8" target="_blank">
-    <h2>Automation H</h2>
-    <p>UI Validation</p>
-</a>
-
-<a href="https://your-link-automation-i.com" class="card a9" target="_blank">
-    <h2>Automation I</h2>
-    <p>Accessibility Tests</p>
-</a>
-
-<a href="https://your-link-automation-j.com" class="card a10" target="_blank">
-    <h2>Automation J</h2>
-    <p>Reports & Analytics</p>
-</a>
-```
-
-</div>
-
-<div class="footer">
-    © 2026 Automation Dashboard
-</div>
+    document.getElementById('title').innerText =
+        pageId.charAt(0).toUpperCase() + pageId.slice(1) + " - Automation Suites";
+}
+</script>
 
 </body>
 </html>
+```
